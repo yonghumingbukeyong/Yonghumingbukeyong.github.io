@@ -726,7 +726,7 @@
                     }
                 });
             }
-            
+            //
             // 初始化拖放功能
             setupDragDrop(avatarUploadArea, 'avatar');
             setupDragDrop(borderUploadArea, 'border');
