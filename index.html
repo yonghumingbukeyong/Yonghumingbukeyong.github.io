@@ -3,40 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple风格博客 | 简约设计</title>
+    <title>QingXuan |青玄</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛰️</text></svg>">
     <style>
         /* 基础样式 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
         
         :root {
-            --primary: #0071e3;
-            --primary-hover: #0077ed;
-            --text: #1d1d1f;
-            --text-light: #86868b;
-            --background: #ffffff;
-            --card-bg: #f5f5f7;
-            --card-hover: #eaeaea;
-            --border: #d2d2d7;
-            --shadow: rgba(0, 0, 0, 0.1);
+            --primary: #008080;         /* 古典青色 */
+            --primary-hover: #006666;   /* 深青色 */
+            --secondary: #333333;       /* 玄色 */
+            --secondary-light: #555555;
+            --text: #222222;
+            --text-light: #666666;
+            --background: #f8f6f2;      /* 宣纸色 */
+            --card-bg: #ffffff;
+            --card-hover: #f0f0f0;
+            --border: #d9d2c5;          /* 淡米色 */
+            --shadow: rgba(0, 0, 0, 0.08);
             --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            --accent: #8c2a2a;          /* 朱砂红 */
         }
         
         .dark-mode {
-            --primary: #2997ff;
-            --primary-hover: #3fa0ff;
-            --text: #f5f5f7;
-            --text-light: #a1a1a6;
-            --background: #121212;
-            --card-bg: #1d1d1f;
-            --card-hover: #2c2c2e;
-            --border: #424245;
-            --shadow: rgba(0, 0, 0, 0.3);
+            --primary: #00b3b3;         /* 亮青色 */
+            --primary-hover: #008080;
+            --secondary: #e0e0e0;      /* 浅玄色 */
+            --secondary-light: #aaaaaa;
+            --text: #f0f0f0;
+            --text-light: #aaaaaa;
+            --background: #1a1a1a;      /* 深玄色 */
+            --card-bg: #222222;
+            --card-hover: #2a2a2a;
+            --border: #444444;
+            --shadow: rgba(0, 0, 0, 0.4);
+            --accent: #d94d4d;          /* 亮朱砂 */
         }
         
         body {
@@ -44,6 +51,8 @@
             color: var(--text);
             line-height: 1.6;
             transition: background-color 0.5s ease;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23008080" stroke-width="1"/></svg>');
+            min-height: 100vh;
         }
         
         .container {
@@ -54,13 +63,14 @@
         
         /* 头部样式 */
         header {
-            padding: 20px 0;
+            padding: 15px 0;
             position: sticky;
             top: 0;
-            background-color: var(--background);
+            background-color: rgba(var(--background), 0.95);
             z-index: 1000;
             border-bottom: 1px solid var(--border);
             backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px var(--shadow);
         }
         
         .navbar {
@@ -70,36 +80,42 @@
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 26px;
+            font-weight: 700;
             color: var(--text);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+            font-family: 'Noto Serif SC', serif;
         }
         
         .logo i {
             color: var(--primary);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 30px;
         }
         
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 15px;
-            font-weight: 400;
+            font-size: 16px;
+            font-weight: 500;
             position: relative;
             transition: var(--transition);
+            font-family: 'Noto Serif SC', serif;
         }
         
         .nav-links a:hover, 
         .nav-links a.active {
-            color: var(--text);
+            color: var(--primary);
         }
         
         .nav-links a::after {
@@ -130,7 +146,7 @@
             justify-content: center;
             background-color: var(--primary);
             color: white;
-            padding: 10px 22px;
+            padding: 10px 24px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 500;
@@ -138,29 +154,31 @@
             border: none;
             cursor: pointer;
             transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 128, 128, 0.2);
         }
         
         .btn:hover {
             background-color: var(--primary-hover);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 128, 128, 0.3);
         }
         
         .btn-outline {
             background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text);
+            border: 1px solid var(--primary);
+            color: var(--primary);
         }
         
         .btn-outline:hover {
-            background: var(--card-bg);
-            transform: translateY(-2px);
+            background: rgba(0, 128, 128, 0.1);
+            transform: translateY(-3px);
         }
         
         .theme-toggle {
             background: transparent;
             border: none;
             color: var(--text);
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
             padding: 8px;
             border-radius: 50%;
@@ -169,20 +187,40 @@
         
         .theme-toggle:hover {
             background: var(--card-bg);
+            color: var(--primary);
         }
         
         /* 英雄区域 */
         .hero {
-            padding: 100px 0 80px;
+            padding: 100px 0 70px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 128, 128, 0.05) 0%, transparent 70%);
+            z-index: -1;
         }
         
         .hero h1 {
-            font-size: 60px;
-            font-weight: 700;
+            font-size: 64px;
+            font-weight: 800;
             line-height: 1.1;
             margin-bottom: 24px;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-family: 'Noto Serif SC', serif;
         }
         
         .hero p {
@@ -193,27 +231,28 @@
             font-weight: 400;
         }
         
-        /* 工具模块 - 新增部分 */
+        /* 工具模块 */
         .tools-section {
-            margin: 80px auto;
+            margin: 60px auto 90px;
         }
         
         .tools-section .section-title {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            position: relative;
         }
         
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
         
         .tool-card {
             background: var(--card-bg);
-            border-radius: 18px;
+            border-radius: 16px;
             padding: 35px 30px;
             border: 1px solid var(--border);
-            box-shadow: 0 4px 12px var(--shadow);
+            box-shadow: 0 6px 20px var(--shadow);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
@@ -221,74 +260,98 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            transform: translateY(0);
         }
         
         .tool-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px var(--shadow);
-            border-color: transparent;
+            transform: translateY(-12px);
+            box-shadow: 0 15px 30px var(--shadow);
+            border-color: var(--primary);
         }
         
         .tool-icon {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #0071e3, #2997ff);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 25px;
             transition: var(--transition);
+            position: relative;
+            z-index: 2;
+            color: white;
         }
         
         .tool-card:hover .tool-icon {
             transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 128, 128, 0.3);
+            animation: float 3s ease-in-out infinite;
         }
         
         .tool-icon i {
-            font-size: 34px;
-            color: white;
+            font-size: 36px;
         }
         
         .tool-card h3 {
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 15px;
-            font-weight: 600;
+            font-weight: 700;
+            color: var(--text);
+            z-index: 2;
+            font-family: 'Noto Serif SC', serif;
         }
         
         .tool-card p {
             color: var(--text-light);
             margin-bottom: 25px;
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 1.7;
+            z-index: 2;
         }
         
         .tool-btn {
             background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 10px 28px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 30px;
             border-radius: 30px;
             font-weight: 500;
             font-size: 15px;
             transition: var(--transition);
             cursor: pointer;
+            z-index: 2;
         }
         
         .tool-btn:hover {
             background: var(--primary);
             color: white;
             border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        /* 动画 */
+        @keyframes float {
+            0% { transform: translateY(0px) scale(1.1); }
+            50% { transform: translateY(-10px) scale(1.1); }
+            100% { transform: translateY(0px) scale(1.1); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         /* 博客区域 */
         .section-title {
-            font-size: 40px;
-            font-weight: 700;
-            margin: 80px 0 40px;
+            font-size: 42px;
+            font-weight: 800;
+            margin: 80px 0 50px;
             text-align: center;
             position: relative;
+            font-family: 'Noto Serif SC', serif;
+            color: var(--text);
         }
         
         .section-title::after {
@@ -297,9 +360,9 @@
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 80px;
             height: 4px;
-            background: var(--primary);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             border-radius: 2px;
         }
         
@@ -312,22 +375,30 @@
         
         .blog-card {
             background: var(--card-bg);
-            border-radius: 18px;
+            border-radius: 16px;
             overflow: hidden;
             transition: var(--transition);
-            box-shadow: 0 4px 12px var(--shadow);
+            box-shadow: 0 4px 15px var(--shadow);
             border: 1px solid var(--border);
+            animation: fadeIn 0.5s ease-out;
+            animation-fill-mode: backwards;
         }
+        
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
         
         .blog-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 25px var(--shadow);
-            border-color: transparent;
+            box-shadow: 0 12px 25px var(--shadow);
+            border-color: var(--primary);
         }
         
         .card-image {
             height: 220px;
             overflow: hidden;
+            position: relative;
+            cursor: pointer;
         }
         
         .card-image img {
@@ -335,6 +406,26 @@
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
+        }
+        
+        .card-image::after {
+            content: '点击查看';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-family: 'Noto Serif SC', serif;
+        }
+        
+        .card-image:hover::after {
+            opacity: 1;
         }
         
         .blog-card:hover .card-image img {
@@ -347,24 +438,27 @@
         
         .card-content .category {
             display: inline-block;
-            background: rgba(0, 113, 227, 0.1);
+            background: rgba(0, 128, 128, 0.1);
             color: var(--primary);
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 13px;
             margin-bottom: 15px;
+            font-weight: 500;
         }
         
         .card-content h3 {
             font-size: 22px;
             margin-bottom: 15px;
             font-weight: 700;
+            font-family: 'Noto Serif SC', serif;
         }
         
         .card-content p {
             color: var(--text-light);
             margin-bottom: 20px;
             font-size: 16px;
+            line-height: 1.7;
         }
         
         .card-meta {
@@ -379,9 +473,21 @@
         /* 页脚 */
         footer {
             background: var(--card-bg);
-            padding: 60px 0 30px;
-            margin-top: 80px;
+            padding: 70px 0 40px;
+            margin-top: 100px;
             border-top: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
         .footer-content {
@@ -392,10 +498,12 @@
         }
         
         .footer-column h3 {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 25px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
+            font-family: 'Noto Serif SC', serif;
+            color: var(--text);
         }
         
         .footer-column h3::after {
@@ -403,7 +511,7 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 30px;
+            width: 40px;
             height: 3px;
             background: var(--primary);
         }
@@ -421,6 +529,9 @@
             text-decoration: none;
             transition: var(--transition);
             font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .footer-links a:hover {
@@ -428,24 +539,52 @@
             padding-left: 5px;
         }
         
+        .footer-links a i {
+            width: 20px;
+            text-align: center;
+        }
+        
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 40px;
             border-top: 1px solid var(--border);
             color: var(--text-light);
             font-size: 14px;
+            position: relative;
         }
         
-        /* 动画 */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .copyright::before {
+            content: '⛰️';
+            font-size: 24px;
+            display: block;
+            margin-bottom: 15px;
+            opacity: 0.7;
         }
         
-        @keyframes toolFloat {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
+        /* 收藏提示样式 */
+        #bookmark-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 10000;
+            display: none;
+            animation: slideIn 0.5s ease-out;
+            font-family: 'Noto Serif SC', serif;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
         }
         
         /* 响应式设计 */
@@ -459,7 +598,7 @@
             }
             
             .section-title {
-                font-size: 32px;
+                font-size: 36px;
             }
             
             .footer-content {
@@ -476,10 +615,11 @@
             .nav-links {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 15px;
             }
             
             .hero {
-                padding: 60px 0 40px;
+                padding: 80px 0 40px;
             }
             
             .hero h1 {
@@ -490,8 +630,8 @@
                 font-size: 18px;
             }
             
-            .blog-grid,
-            .tools-grid {
+            .tools-grid,
+            .blog-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -500,20 +640,26 @@
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 收藏提示 -->
+    <div id="bookmark-notification">
+        <i class="fas fa-bookmark"></i> 已添加到收藏夹！
+    </div>
+    
     <!-- 导航栏 -->
     <header>
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
-                    <i class="fas fa-blog"></i>
-                    MinimalBlog
+                    <i class="fas fa-mountain"></i>
+                    QingXuan
                 </a>
                 <div class="nav-links">
                     <a href="#" class="active">首页</a>
-                    <a href="#">设计</a>
-                    <a href="#">技术</a>
+                  <!--   <a href="#">设计</a>
+                    <a href="#">古典美学</a> -->
                     <a href="#">灵感</a>
                     <a href="#">关于</a>
                 </div>
@@ -521,7 +667,9 @@
                     <button class="theme-toggle" id="themeToggle">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <a href="#" class="btn">订阅</a>
+                    <button class="btn" id="bookmarkBtn">
+                        <i class="fas fa-bookmark"></i> 收藏本站
+                    </button>
                 </div>
             </nav>
         </div>
@@ -530,126 +678,126 @@
     <!-- 英雄区域 -->
     <section class="hero">
         <div class="container">
-            <h1>简约设计，无限灵感</h1>
-            <p>探索设计与技术的交汇点，发现创造力的无限可能</p>
-            <a href="#tools" class="btn">探索实用工具</a>
+            <h1>青山隐隐水迢迢</h1>
+            <p>探索AI</p>
+            <a href="#tools" class="btn">探索工具</a>
         </div>
     </section>
 
-    <!-- 工具模块 - 替换原链接跳转面板 -->
+    <!-- 工具模块 -->
     <div class="container tools-section">
-        <h2 class="section-title" id="tools">实用工具</h2>
+        <h2 class="section-title" id="tools">精选工具</h2>
         <div class="tools-grid">
             <!-- 工具1 -->
             <div class="tool-card">
                 <div class="tool-icon">
-                    <i class="fas fa-link"></i>
+                    <i class="fas fa-paint-brush"></i>
                 </div>
-                <h3>链接缩短器</h3>
-                <p>将长URL转换为简洁易记的短链接，优化分享体验</p>
+                <h3>古典配色生成</h3>
+                <p>生成符合中国古典美学的配色方案，包含青、赤、黄、白、玄五色体系</p>
                 <button class="tool-btn">使用工具</button>
             </div>
             
             <!-- 工具2 -->
             <div class="tool-card">
                 <div class="tool-icon">
-                    <i class="fas fa-qrcode"></i>
+                    <i class="fas fa-mountain"></i>
                 </div>
-                <h3>二维码生成器</h3>
-                <p>为网址、联系方式等创建个性化二维码，支持多种格式</p>
-                <button class="tool-btn">使用工具</button>
+                <h3>微信头像框合成</h3>
+                <p>基于AI技术生成微信头像合成工具</p>
+                <button   href="posts/post1.html" class="tool-btn">使用工具</button>
             </div>
             
             <!-- 工具3 -->
             <div class="tool-card">
                 <div class="tool-icon">
-                    <i class="fas fa-compress-alt"></i>
+                    <i class="fas fa-font"></i>
                 </div>
-                <h3>图片压缩</h3>
-                <p>智能压缩图片大小，保持画质的同时减少加载时间</p>
+                <h3>书法字体转换</h3>
+                <p>将现代字体转换为古典书法风格，支持颜体、柳体等多种书法风格</p>
                 <button class="tool-btn">使用工具</button>
             </div>
             
             <!-- 工具4 -->
             <div class="tool-card">
                 <div class="tool-icon">
-                    <i class="fas fa-palette"></i>
+                    <i class="fas fa-yin-yang"></i>
                 </div>
-                <h3>色彩选择器</h3>
-                <p>提取图片主色调，生成协调的配色方案和渐变效果</p>
+                <h3>传统纹样库</h3>
+                <p>云雷纹、饕餮纹、蟠螭纹等上千种中国传统纹样矢量资源</p>
                 <button class="tool-btn">使用工具</button>
             </div>
             
             <!-- 工具5 -->
             <div class="tool-card">
                 <div class="tool-icon">
-                    <i class="fas fa-code"></i>
+                    <i class="fas fa-chess-board"></i>
                 </div>
-                <h3>代码格式化</h3>
-                <p>美化HTML、CSS和JavaScript代码，提高可读性</p>
+                <h3>古典布局生成</h3>
+                <p>生成符合中国古典美学原则的页面布局和构图方案</p>
                 <button class="tool-btn">使用工具</button>
             </div>
             
             <!-- 工具6 -->
             <div class="tool-card">
                 <div class="tool-icon">
-                    <i class="fas fa-lock"></i>
+                    <i class="fas fa-dragon"></i>
                 </div>
-                <h3>密码生成器</h3>
-                <p>创建高强度的随机密码，保障您的账户安全</p>
-                <button class="tool-btn">使用工具</button>
+                <h3>传统元素库</h3>
+                <p>龙、凤、麒麟、祥云等中国传统文化符号矢量资源库</p>
+                <button class="tool-btn" >使用工具</button>
             </div>
         </div>
     </div>
 
     <!-- 博客文章区域 -->
     <div class="container">
-        <h2 class="section-title" id="blog">精选文章</h2>
+        <h2 class="section-title" id="blog">最新文章</h2>
         <div class="blog-grid">
             <!-- 文章1 -->
             <div class="blog-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=1000" alt="UI设计">
+                <div class="card-image" onclick="window.location.href='#article1'">
+                    <img src="https://images.unsplash.com/photo-1547981609-4b6bf2f96449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="中国古典设计">
                 </div>
                 <div class="card-content">
-                    <span class="category">UI设计</span>
-                    <h3>2024年UI设计趋势分析</h3>
-                    <p>探索新一年中最重要的用户界面设计趋势，从微交互到暗黑模式。</p>
+                    <span class="category">古典美学</span>
+                    <h3>中国古典色彩美学解析</h3>
+                    <p>探索青、赤、黄、白、玄五色体系在现代设计中的应用与传承</p>
                     <div class="card-meta">
-                        <span><i class="far fa-user"></i> 张明</span>
-                        <span><i class="far fa-calendar"></i> 2023年10月15日</span>
+                        <span><i class="far fa-user"></i> 王明</span>
+                        <span><i class="far fa-calendar"></i> 2023年11月15日</span>
                     </div>
                 </div>
             </div>
             
             <!-- 文章2 -->
             <div class="blog-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=1000" alt="前端开发">
+                <div class="card-image" onclick="window.location.href='#article2'">
+                    <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="山水设计">
                 </div>
                 <div class="card-content">
-                    <span class="category">前端开发</span>
-                    <h3>现代CSS布局技术指南</h3>
-                    <p>掌握Flexbox、Grid和容器查询等现代CSS布局技术，提升开发效率。</p>
+                    <span class="category">设计哲学</span>
+                    <h3>山水意境在现代UI设计中的应用</h3>
+                    <p>如何将中国传统山水画的留白与意境融入现代用户界面设计</p>
                     <div class="card-meta">
-                        <span><i class="far fa-user"></i> 李华</span>
-                        <span><i class="far fa-calendar"></i> 2023年10月10日</span>
+                        <span><i class="far fa-user"></i> 李青</span>
+                        <span><i class="far fa-calendar"></i> 2023年11月10日</span>
                     </div>
                 </div>
             </div>
             
             <!-- 文章3 -->
             <div class="blog-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=1000" alt="用户体验">
+                <div class="card-image" onclick="window.location.href='#article3'">
+                    <img src="https://images.unsplash.com/photo-1534073820896-7d3a5e5ab253?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="传统纹样">
                 </div>
                 <div class="card-content">
-                    <span class="category">用户体验</span>
-                    <h3>提升用户留存率的10个技巧</h3>
-                    <p>通过优化用户体验设计，显著提高用户留存率和参与度。</p>
+                    <span class="category">设计元素</span>
+                    <h3>中国传统纹样在设计中的现代演绎</h3>
+                    <p>从云雷纹到饕餮纹，古典纹样如何焕发新生</p>
                     <div class="card-meta">
-                        <span><i class="far fa-user"></i> 王伟</span>
-                        <span><i class="far fa-calendar"></i> 2023年10月5日</span>
+                        <span><i class="far fa-user"></i> 张华</span>
+                        <span><i class="far fa-calendar"></i> 2023年11月5日</span>
                     </div>
                 </div>
             </div>
@@ -661,54 +809,54 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>MinimalBlog</h3>
-                    <p style="color: var(--text-light); margin-bottom: 20px; font-size: 15px;">
-                        专注于设计与技术的博客平台，分享前沿趋势与实用技巧。
+                    <h3>QingXuan</h3>
+                    <p style="color: var(--text-light); margin-bottom: 20px; font-size: 15px; line-height: 1.7;">
+                        致力于中国古典美学与现代设计的融合，传承中华文化精髓，创造具有东方韵味的数字体验。
                     </p>
                     <div class="social-links" style="display: flex; gap: 15px;">
-                        <a href="#" style="color: var(--text-light);"><i class="fab fa-twitter"></i></a>
-                        <a href="#" style="color: var(--text-light);"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--text-light);"><i class="fab fa-weixin"></i></a>
+                        <a href="#" style="color: var(--text-light);"><i class="fab fa-weibo"></i></a>
                         <a href="#" style="color: var(--text-light);"><i class="fab fa-github"></i></a>
                         <a href="#" style="color: var(--text-light);"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>快速链接</h3>
+                    <h3>网站导航</h3>
                     <ul class="footer-links">
-                        <li><a href="#">首页</a></li>
-                        <li><a href="#">最新文章</a></li>
-                        <li><a href="#">设计资源</a></li>
-                        <li><a href="#">关于我们</a></li>
-                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="#"><i class="fas fa-paint-brush"></i> 设计工具</a></li>
+                        <li><a href="#"><i class="fas fa-book"></i> 博客文章</a></li>
+                        <li><a href="#"><i class="fas fa-image"></i> 灵感图库</a></li>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> 关于我们</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>分类</h3>
+                    <h3>资源中心</h3>
                     <ul class="footer-links">
-                        <li><a href="#">UI/UX设计</a></li>
-                        <li><a href="#">前端开发</a></li>
-                        <li><a href="#">用户体验</a></li>
-                        <li><a href="#">设计灵感</a></li>
-                        <li><a href="#">技术教程</a></li>
+                        <li><a href="#"><i class="fas fa-download"></i> 传统纹样库</a></li>
+                        <li><a href="#"><i class="fas fa-download"></i> 古典配色方案</a></li>
+                        <li><a href="#"><i class="fas fa-download"></i> 书法字体集</a></li>
+                        <li><a href="#"><i class="fas fa-download"></i> 传统元素矢量</a></li>
+                        <li><a href="#"><i class="fas fa-download"></i> 设计模板</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>订阅更新</h3>
-                    <p style="color: var(--text-light); margin-bottom: 15px; font-size: 15px;">
-                        获取最新文章和设计资源
+                    <h3>收藏本站</h3>
+                    <p style="color: var(--text-light); margin-bottom: 15px; font-size: 15px; line-height: 1.7;">
+                        一键收藏，随时访问QingXuan，探索中国古典设计之美
                     </p>
-                    <div class="link-form">
-                        <input type="email" class="link-input" placeholder="输入您的邮箱">
-                        <button class="btn" style="width: 100%; margin-top: 10px;">订阅</button>
-                    </div>
+                    <button class="btn" id="footerBookmarkBtn" style="width: 100%;">
+                        <i class="fas fa-bookmark"></i> 收藏本页
+                    </button>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 MinimalBlog. 保留所有权利。</p>
+                <p>⛰️ 青山不改，绿水长流 ⛰️</p>
+                <p>&copy; 2023 QingXuan. 保留所有权利。</p>
             </div>
         </div>
     </footer>
@@ -724,16 +872,15 @@
             if (document.body.classList.contains('dark-mode')) {
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
             } else {
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
             }
-            
-            // 保存主题偏好
-            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
         
-        // 页面加载时应用保存的主题
+        // 检查保存的主题
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
@@ -741,39 +888,10 @@
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
             }
-        });
-        
-        // 工具按钮悬停动画
-        const toolCards = document.querySelectorAll('.tool-card');
-        toolCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                const icon = card.querySelector('.tool-icon');
-                icon.style.animation = 'toolFloat 1.5s ease-in-out infinite';
-            });
             
-            card.addEventListener('mouseleave', () => {
-                const icon = card.querySelector('.tool-icon');
-                icon.style.animation = '';
-            });
-        });
-        
-        // 工具按钮点击效果
-        const toolBtns = document.querySelectorAll('.tool-btn');
-        toolBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const toolName = this.parentElement.querySelector('h3').textContent;
-                alert(`即将打开${toolName}功能页面`);
-                
-                // 添加点击反馈效果
-                this.style.backgroundColor = 'var(--primary)';
-                this.style.color = 'white';
-                this.style.borderColor = 'var(--primary)';
-                
-                setTimeout(() => {
-                    this.style.backgroundColor = '';
-                    this.style.color = '';
-                    this.style.borderColor = '';
-                }, 300);
+            // 工具卡片动画延迟
+            document.querySelectorAll('.tool-card').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
             });
         });
         
@@ -784,6 +902,57 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+            });
+        });
+        
+        // 收藏功能
+        const bookmarkBtn = document.getElementById('bookmarkBtn');
+        const footerBookmarkBtn = document.getElementById('footerBookmarkBtn');
+        const bookmarkNotification = document.getElementById('bookmark-notification');
+        
+        function addToBookmarks() {
+            const title = document.title;
+            const url = window.location.href;
+            
+            // 显示收藏成功提示
+            bookmarkNotification.style.display = 'block';
+            
+            // 3秒后隐藏提示
+            setTimeout(() => {
+                bookmarkNotification.style.animation = 'slideOut 0.5s ease-out';
+                setTimeout(() => {
+                    bookmarkNotification.style.display = 'none';
+                    bookmarkNotification.style.animation = '';
+                }, 500);
+            }, 3000);
+            
+            // 浏览器收藏功能
+            try {
+                // Chrome, Firefox, IE
+                if (window.external && ('AddFavorite' in window.external)) {
+                    window.external.AddFavorite(url, title);
+                } 
+                // Safari
+                else if (window.sidebar && window.sidebar.addPanel) {
+                    window.sidebar.addPanel(title, url, '');
+                }
+                // 其他浏览器
+                else {
+                    alert(`请按 ${navigator.userAgent.indexOf('Mac') !== -1 ? 'Cmd+D' : 'Ctrl+D'} 手动收藏本页`);
+                }
+            } catch (e) {
+                alert(`请按 ${navigator.userAgent.indexOf('Mac') !== -1 ? 'Cmd+D' : 'Ctrl+D'} 手动收藏本页`);
+            }
+        }
+        
+        // 绑定收藏按钮事件
+        bookmarkBtn.addEventListener('click', addToBookmarks);
+        footerBookmarkBtn.addEventListener('click', addToBookmarks);
+        
+        // 图片点击跳转功能
+        document.querySelectorAll('.card-image').forEach(image => {
+            image.addEventListener('click', function() {
+                window.location.href = this.getAttribute('onclick').match(/'(.*?)'/)[1];
             });
         });
     </script>
