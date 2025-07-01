@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>微信头像合成工具 - 自定义边框版</title>
+    <title>微信头像合成工具 - 古典青玄主题</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700&display=swap">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-family: 'Noto Serif SC', 'Ma Shan Zheng', serif;
         }
         
         body {
-            background: linear-gradient(135deg, #e0f0ff 0%, #f5fbff 100%);
+            background: linear-gradient(135deg, #e6f2f0 0%, #f0f7f5 100%);
             min-height: 100vh;
             padding: 20px;
             display: flex;
@@ -28,32 +29,36 @@
             width: 100%;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 100, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(13, 94, 85, 0.15);
             overflow: hidden;
+            border: 1px solid #d1e0d9;
         }
         
         header {
-            background: linear-gradient(to right, #07C160, #05963f);
-            color: white;
+            background: linear-gradient(to right, #0d9488, #0d5e55);
+            color: #f0f7f5;
             text-align: center;
             padding: 35px 20px;
             position: relative;
+            border-bottom: 3px solid #1e293b;
         }
         
         h1 {
             font-size: 2.8rem;
             margin-bottom: 10px;
             font-weight: 700;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            font-family: 'Ma Shan Zheng', cursive;
         }
         
         .subtitle {
             font-size: 1.3rem;
-            opacity: 0.95;
             max-width: 700px;
             margin: 0 auto;
-            font-weight: 300;
+            font-weight: 400;
+            opacity: 0.9;
+            letter-spacing: 1px;
         }
         
         .main-content {
@@ -81,54 +86,70 @@
         }
         
         .section-title {
-            font-size: 1.6rem;
-            color: #07C160;
+            font-size: 1.7rem;
+            color: #1e293b;
             margin-bottom: 25px;
             padding-bottom: 12px;
-            border-bottom: 3px solid #e0f7e9;
+            border-bottom: 3px solid #0d9488;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 12px;
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 80%;
+            width: 5px;
+            background: #0d9488;
+            border-radius: 3px;
         }
         
         .section-title i {
-            font-size: 2rem;
+            color: #0d5e55;
+            font-size: 1.8rem;
         }
         
         .upload-area {
-            border: 3px dashed #07C160;
-            border-radius: 18px;
-            padding: 40px 25px;
+            border: 3px dashed #0d9488;
+            border-radius: 16px;
+            padding: 35px 25px;
             text-align: center;
-            background-color: #f8fffb;
+            background-color: #f8fffe;
             cursor: pointer;
             transition: all 0.3s ease;
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 20px rgba(13, 148, 136, 0.1);
         }
         
         .upload-area:hover {
-            background-color: #e8f7ef;
+            background-color: #e8f7f4;
             transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(7, 193, 96, 0.15);
+            box-shadow: 0 12px 25px rgba(13, 148, 136, 0.2);
         }
         
         .upload-icon {
-            font-size: 65px;
-            color: #07C160;
+            font-size: 60px;
+            color: #0d9488;
             margin-bottom: 20px;
             transition: transform 0.3s ease;
         }
         
         .upload-area:hover .upload-icon {
             transform: scale(1.15);
+            color: #0d5e55;
         }
         
         .upload-text {
             font-size: 1.3rem;
-            color: #555;
+            color: #1e293b;
             margin-bottom: 25px;
             font-weight: 500;
         }
@@ -138,31 +159,32 @@
         }
         
         .upload-btn {
-            background: linear-gradient(to right, #07C160, #05b155);
+            background: linear-gradient(to right, #0d9488, #0d5e55);
             color: white;
             border: none;
-            padding: 15px 40px;
+            padding: 14px 36px;
             font-size: 1.2rem;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 600;
             display: inline-block;
-            box-shadow: 0 6px 18px rgba(7, 193, 96, 0.35);
+            box-shadow: 0 6px 18px rgba(13, 148, 136, 0.3);
+            letter-spacing: 1px;
         }
         
         .upload-btn:hover {
-            background: linear-gradient(to right, #05963f, #048637);
+            background: linear-gradient(to right, #0d5e55, #09443d);
             transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(7, 193, 96, 0.45);
+            box-shadow: 0 10px 25px rgba(13, 148, 136, 0.4);
         }
         
         .controls {
             background: #f8f9fa;
-            border-radius: 18px;
-            padding: 30px;
+            border-radius: 16px;
+            padding: 25px;
             margin-top: 20px;
-            border: 2px solid #eaeaea;
+            border: 2px solid #e6f2f0;
         }
         
         .control-group {
@@ -173,16 +195,23 @@
             display: block;
             margin-bottom: 15px;
             font-weight: 700;
-            color: #444;
-            font-size: 1.2rem;
+            color: #1e293b;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .control-label i {
+            color: #0d9488;
         }
         
         .custom-border-control {
             margin-top: 20px;
-            background: #e8f7ef;
+            background: #e8f7f4;
             padding: 20px;
             border-radius: 15px;
-            border: 2px dashed #07C160;
+            border: 2px dashed #0d9488;
         }
         
         .preview-container {
@@ -190,20 +219,21 @@
             justify-content: center;
             align-items: center;
             min-height: 380px;
-            border: 2px solid #eaeaea;
+            border: 2px solid #e6f2f0;
             border-radius: 20px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #eef2f6 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f7f5 100%);
             margin-bottom: 30px;
             overflow: hidden;
             position: relative;
-            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 0 25px rgba(13, 94, 85, 0.08);
         }
         
         #preview-canvas {
             max-width: 320px;
             max-height: 320px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
             display: none;
+            border-radius: 8px;
         }
         
         .default-preview {
@@ -212,14 +242,14 @@
         }
         
         .default-preview i {
-            font-size: 7rem;
+            font-size: 6.5rem;
             color: #d0f0e0;
             margin-bottom: 25px;
             opacity: 0.7;
         }
         
         .default-preview p {
-            color: #999;
+            color: #7a8b99;
             font-size: 1.3rem;
             max-width: 350px;
             line-height: 1.6;
@@ -233,45 +263,46 @@
         }
         
         .action-btn {
-            padding: 18px 0;
+            padding: 17px 0;
             font-size: 1.25rem;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.4s ease;
             font-weight: 600;
             text-align: center;
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.12);
             border: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
+            letter-spacing: 1px;
         }
         
         .download-btn {
-            background: linear-gradient(to right, #07C160, #048637);
+            background: linear-gradient(to right, #0d9488, #0d5e55);
             color: white;
         }
         
         .download-btn:hover {
-            background: linear-gradient(to right, #05963f, #036a2d);
+            background: linear-gradient(to right, #0d5e55, #09443d);
             transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(7, 193, 96, 0.5);
+            box-shadow: 0 10px 25px rgba(13, 148, 136, 0.4);
         }
         
         .reset-btn {
-            background: linear-gradient(to right, #4a6fa8, #2a4c85);
+            background: linear-gradient(to right, #1e293b, #0f172a);
             color: white;
         }
         
         .reset-btn:hover {
-            background: linear-gradient(to right, #2e4e7c, #1a3257);
+            background: linear-gradient(to right, #0f172a, #070d19);
             transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(46, 78, 124, 0.45);
+            box-shadow: 0 10px 25px rgba(30, 41, 59, 0.4);
         }
         
         .action-btn:disabled {
-            background: #ccc;
+            background: #a8b5b3;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
@@ -279,29 +310,30 @@
         }
         
         .tips {
-            background: #e8f7ef;
-            border-radius: 18px;
-            padding: 30px;
+            background: #e8f7f4;
+            border-radius: 16px;
+            padding: 25px;
             margin-top: 30px;
             border: 2px solid #c5e8d4;
         }
         
         .tip-title {
-            color: #07C160;
+            color: #0d5e55;
             font-weight: 700;
             margin-bottom: 18px;
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
         }
         
         .tip-title i {
+            color: #0d9488;
             font-size: 1.6rem;
         }
         
         .tip-content {
-            color: #446;
+            color: #2d3a47;
             line-height: 1.8;
             font-size: 1.1rem;
         }
@@ -311,21 +343,22 @@
             display: flex;
             align-items: flex-start;
             gap: 10px;
+            padding-left: 5px;
         }
         
         .tip-content p i {
-            color: #07C160;
+            color: #0d9488;
             margin-top: 5px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         footer {
             text-align: center;
             padding: 25px;
-            color: #666;
+            color: #5a6d7c;
             font-size: 1.1rem;
-            background: #f8f9fa;
-            border-top: 2px solid #eee;
+            background: #f0f7f5;
+            border-top: 2px solid #d1e0d9;
         }
         
         .hidden {
@@ -345,7 +378,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.92);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -358,8 +391,8 @@
         .spinner {
             width: 60px;
             height: 60px;
-            border: 6px solid rgba(7, 193, 96, 0.2);
-            border-top: 6px solid #07C160;
+            border: 6px solid rgba(13, 148, 136, 0.2);
+            border-top: 6px solid #0d9488;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin-bottom: 20px;
@@ -378,7 +411,7 @@
         }
         
         .border-preview-item {
-            border: 2px solid #e0e0e0;
+            border: 2px solid #d1e0d9;
             border-radius: 12px;
             overflow: hidden;
             height: 150px;
@@ -386,6 +419,12 @@
             align-items: center;
             justify-content: center;
             background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+        
+        .border-preview-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(13, 148, 136, 0.2);
         }
         
         .border-preview-item img {
@@ -398,21 +437,23 @@
             text-align: center;
             margin-top: 10px;
             font-weight: 600;
-            color: #07C160;
+            color: #0d5e55;
         }
         
         .feature-tag {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: #ff6b6b;
-            color: white;
+            background: #0d5e55;
+            color: #e8f7f4;
             padding: 8px 15px;
             border-radius: 30px;
             font-weight: 700;
             font-size: 0.9rem;
-            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 4px 10px rgba(13, 94, 85, 0.3);
             animation: pulse 2s infinite;
+            border: 1px solid #1e293b;
+            letter-spacing: 1px;
         }
         
         @keyframes pulse {
@@ -420,14 +461,86 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
+        
+        .classic-pattern {
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            bottom: 0;
+            left: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 0, 50 10 T 100 10' stroke='%230d5e55' stroke-width='1' fill='none' stroke-opacity='0.3'/%3E%3C/svg%3E") repeat-x;
+            opacity: 0.5;
+        }
+        
+        .chinese-seal {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0.05;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10,10 L90,10 L90,90 L10,90 Z' fill='none' stroke='%230d5e55' stroke-width='2'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-family='Ma Shan Zheng' font-size='40' fill='%230d5e55'%3E印%3C/text%3E%3C/svg%3E");
+        }
+        
+        .control-section {
+            margin-bottom: 35px;
+            padding: 20px;
+            border-radius: 16px;
+            background: #f5fbfa;
+            border: 1px solid #d1e0d9;
+        }
+        
+        .control-section h3 {
+            margin-bottom: 15px;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .slider {
+            flex: 1;
+            height: 8px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #d1e0d9;
+            outline: none;
+            border-radius: 4px;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #0d9488;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .slider-value {
+            min-width: 40px;
+            text-align: center;
+            font-weight: 600;
+            color: #0d5e55;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="feature-tag">自定义边框</div>
+            <div class="feature-tag">古典青玄主题</div>
             <h1><i class="fab fa-weixin"></i> 微信头像合成工具</h1>
-            <p class="subtitle">上传头像和自定义边框，创建独一无二的微信头像</p>
+            <p class="subtitle">上传头像和自定义边框，创建独一无二的古典风格微信头像</p>
+            <div class="classic-pattern"></div>
         </header>
         
         <div class="main-content">
@@ -457,13 +570,13 @@
                         <div class="border-preview-container">
                             <div>
                                 <div class="border-preview-item" id="avatar-preview">
-                                    <p style="color: #888;">头像预览</p>
+                                    <p style="color: #7a8b99;">头像预览</p>
                                 </div>
                                 <div class="border-name">头像</div>
                             </div>
                             <div>
                                 <div class="border-preview-item" id="border-preview">
-                                    <p style="color: #888;">边框预览</p>
+                                    <p style="color: #7a8b99;">边框预览</p>
                                 </div>
                                 <div class="border-name">边框</div>
                             </div>
@@ -473,13 +586,32 @@
                     <div class="control-group">
                         <label class="control-label"><i class="fas fa-cogs"></i> 自定义边框设置</label>
                         <div class="custom-border-control">
-                            <p style="margin-bottom: 20px; color: #07C160; font-weight: 600; font-size: 1.1rem;">
+                            <p style="margin-bottom: 20px; color: #0d5e55; font-weight: 600; font-size: 1.1rem;">
                                 <i class="fas fa-info-circle"></i> 提示：边框图片应为透明背景的PNG格式，头像将自动填充边框内部区域
                             </p>
                             <div class="tip-content">
                                 <p><i class="fas fa-check"></i> 边框尺寸决定最终头像大小</p>
                                 <p><i class="fas fa-check"></i> 头像会自动缩放填充边框内部区域</p>
                                 <p><i class="fas fa-check"></i> 边框外的区域将保持透明</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="control-section">
+                        <h3><i class="fas fa-sliders-h"></i> 高级调整</h3>
+                        <div class="control-group">
+                            <label class="control-label"><i class="fas fa-expand-arrows-alt"></i> 头像缩放比例</label>
+                            <div class="slider-container">
+                                <input type="range" min="80" max="120" value="100" class="slider" id="scale-slider">
+                                <span class="slider-value" id="scale-value">100%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label class="control-label"><i class="fas fa-adjust"></i> 边框透明度</label>
+                            <div class="slider-container">
+                                <input type="range" min="50" max="100" value="100" class="slider" id="opacity-slider">
+                                <span class="slider-value" id="opacity-value">100%</span>
                             </div>
                         </div>
                     </div>
@@ -497,12 +629,13 @@
                         <canvas id="preview-canvas" width="500" height="500"></canvas>
                         <div class="progress-overlay" id="progress-overlay">
                             <div class="spinner"></div>
-                            <p style="font-size: 1.2rem; font-weight: 600; color: #07C160;">合成处理中...</p>
+                            <p style="font-size: 1.2rem; font-weight: 600; color: #0d9488;">合成处理中...</p>
                         </div>
                         <div id="default-preview" class="default-preview">
                             <i class="fas fa-images"></i>
                             <p>上传头像和边框图片后，合成效果将显示在这里</p>
                         </div>
+                        <div class="chinese-seal"></div>
                     </div>
                 </div>
                 
@@ -524,7 +657,7 @@
                         <p><i class="fas fa-check-circle"></i> 首先上传您的头像图片（JPG/PNG格式）</p>
                         <p><i class="fas fa-check-circle"></i> 然后上传边框图片（透明背景PNG效果最佳）</p>
                         <p><i class="fas fa-check-circle"></i> 系统会自动将头像填充到边框内部区域</p>
-                        <p><i class="fas fa-check-circle"></i> 最终头像尺寸由边框图片尺寸决定</p>
+                        <p><i class="fas fa-check-circle"></i> 使用滑块调整头像大小和边框透明度</p>
                         <p><i class="fas fa-check-circle"></i> 点击下载按钮保存您的新头像</p>
                         <p><i class="fas fa-check-circle"></i> 所有处理在浏览器中完成，图片不会上传到服务器</p>
                     </div>
@@ -533,7 +666,7 @@
         </div>
         
         <footer>
-            <p>微信头像合成工具 | 本工具完全在浏览器中运行，不会上传您的图片</p>
+            <p>微信头像合成工具 | 青玄古典主题 | 本工具完全在浏览器中运行，不会上传您的图片</p>
         </footer>
     </div>
 
@@ -552,10 +685,16 @@
             const progressOverlay = document.getElementById('progress-overlay');
             const avatarPreview = document.getElementById('avatar-preview');
             const borderPreview = document.getElementById('border-preview');
+            const scaleSlider = document.getElementById('scale-slider');
+            const scaleValue = document.getElementById('scale-value');
+            const opacitySlider = document.getElementById('opacity-slider');
+            const opacityValue = document.getElementById('opacity-value');
             
             // 状态变量
             let uploadedAvatar = null;
             let uploadedBorder = null;
+            let scaleFactor = 1.0;
+            let borderOpacity = 1.0;
             
             // 头像上传事件
             avatarUploadArea.addEventListener('click', function() {
@@ -585,7 +724,7 @@
                 
                 // 创建临时下载链接
                 const link = document.createElement('a');
-                link.download = 'custom-wechat-avatar.png';
+                link.download = '古典风格微信头像.png';
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             });
@@ -595,6 +734,8 @@
                 // 重置所有状态
                 uploadedAvatar = null;
                 uploadedBorder = null;
+                scaleFactor = 1.0;
+                borderOpacity = 1.0;
                 
                 // 重置UI
                 canvas.style.display = 'none';
@@ -605,9 +746,32 @@
                 avatarInput.value = '';
                 borderInput.value = '';
                 
+                // 重置滑块
+                scaleSlider.value = 100;
+                scaleValue.textContent = '100%';
+                opacitySlider.value = 100;
+                opacityValue.textContent = '100%';
+                
                 // 重置预览区域
-                avatarPreview.innerHTML = '<p style="color: #888;">头像预览</p>';
-                borderPreview.innerHTML = '<p style="color: #888;">边框预览</p>';
+                avatarPreview.innerHTML = '<p style="color: #7a8b99;">头像预览</p>';
+                borderPreview.innerHTML = '<p style="color: #7a8b99;">边框预览</p>';
+            });
+            
+            // 滑块事件监听
+            scaleSlider.addEventListener('input', function() {
+                scaleFactor = this.value / 100;
+                scaleValue.textContent = this.value + '%';
+                if (uploadedAvatar && uploadedBorder) {
+                    drawCompositeImage();
+                }
+            });
+            
+            opacitySlider.addEventListener('input', function() {
+                borderOpacity = this.value / 100;
+                opacityValue.textContent = this.value + '%';
+                if (uploadedAvatar && uploadedBorder) {
+                    drawCompositeImage();
+                }
             });
             
             // 处理图片上传
@@ -634,6 +798,7 @@
                             previewImg.style.maxWidth = '100%';
                             previewImg.style.maxHeight = '100%';
                             previewImg.style.borderRadius = '8px';
+                            previewImg.style.border = '1px solid #d1e0d9';
                             avatarPreview.appendChild(previewImg);
                         } else {
                             uploadedBorder = img;
@@ -678,11 +843,28 @@
                 // 清除画布
                 ctx.clearRect(0, 0, borderWidth, borderHeight);
                 
+                // 计算缩放后的头像尺寸
+                const scaledWidth = uploadedAvatar.width * scaleFactor;
+                const scaledHeight = uploadedAvatar.height * scaleFactor;
+                
+                // 计算头像位置（居中）
+                const x = (borderWidth - scaledWidth) / 2;
+                const y = (borderHeight - scaledHeight) / 2;
+                
                 // 绘制头像（填充整个边框区域）
-                ctx.drawImage(uploadedAvatar, 0, 0, borderWidth, borderHeight);
+                ctx.drawImage(uploadedAvatar, x, y, scaledWidth, scaledHeight);
+                
+                // 保存当前状态
+                ctx.save();
+                
+                // 设置边框透明度
+                ctx.globalAlpha = borderOpacity;
                 
                 // 在头像上方绘制边框（带透明区域）
                 ctx.drawImage(uploadedBorder, 0, 0, borderWidth, borderHeight);
+                
+                // 恢复状态
+                ctx.restore();
                 
                 // 显示Canvas
                 canvas.style.display = 'block';
@@ -708,18 +890,18 @@
                 area.addEventListener('dragover', function(e) {
                     e.preventDefault();
                     this.style.backgroundColor = '#d0f0e0';
-                    this.style.borderColor = '#05963f';
+                    this.style.borderColor = '#0d5e55';
                 });
                 
                 area.addEventListener('dragleave', function() {
-                    this.style.backgroundColor = '#f8fffb';
-                    this.style.borderColor = '#07C160';
+                    this.style.backgroundColor = '#f8fffe';
+                    this.style.borderColor = '#0d9488';
                 });
                 
                 area.addEventListener('drop', function(e) {
                     e.preventDefault();
-                    this.style.backgroundColor = '#f8fffb';
-                    this.style.borderColor = '#07C160';
+                    this.style.backgroundColor = '#f8fffe';
+                    this.style.borderColor = '#0d9488';
                     
                     if (e.dataTransfer.files.length) {
                         handleImageUpload(e.dataTransfer.files[0], type);
